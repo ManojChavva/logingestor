@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Query Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div id="loginForm">
+        <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="logQueryInterface" style="display: none;">
+        <h1>Log Query Interface</h1>
+
+        <!-- Fetch Logs Button -->
+        <h2>Fetch Logs:</h2>
+        <button id="fetchLogsButton" onclick="fetchLogs()">Load All Logs</button>
+
+        <!-- Search Filter -->
+        <h2>Search specific:</h2>
+        <h4> Search a word, specified in any column. To specify column search use dropdown.</h4>
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search">
+
+        <!-- Dropdown for selecting headers -->
+        <label for="selectHeaders">Select Headers:</label>
+        <select id="selectHeaders" multiple>
+            <!-- Headers will be dynamically populated in JavaScript -->
+        </select>
+
+        <!-- Date Range Filter -->
+        <h2>Date Range:</h2>
+        <label for="fromDate">From:</label>
+        <input type="date" id="fromDate" name="fromDate">
+
+        <label for="toDate">To:</label>
+        <input type="date" id="toDate" name="toDate">
+
+        <button onclick="applySearch()">Apply Search</button>
+        <button onclick="clearFilter()">Clear Filter</button>
+
+        <!-- Log Result -->
+        <h2>Log Result:</h2>
+        <table id="logTable" border="1"></table>
+        <div id="pagination"></div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
